@@ -1,6 +1,7 @@
 let IP_Address;
 let postal;
 let timeZone;
+let post_offices;
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://ipinfo.io/json")
@@ -67,10 +68,24 @@ const fetchPostOffice = () => {
             <p>Pincode: <span>${postal}</span></p>
             <p>Message: <span>${data[0].Message}</span></p>
         `;
-      let post_container = document.getElementById("post-container");
-      data[0].PostOffice.map((postOffice) => {
-        post_container.innerHTML += `
-        
+      post_offices = data[0].PostOffice;
+      renderPostOffice(post_offices);
+    });
+};
+
+
+function searchPost(){
+    let text = document.getElementById("search-post");
+    console.log("search",text.value);
+    console.log(post_offices.filter((item)=>item.Name.toLowerCase().includes(text.value.toLowerCase())));
+    renderPostOffice(post_offices.filter((item)=>item.Name.toLowerCase().includes(text.value.toLowerCase()) || item.BranchType.toLowerCase().includes(text.value.toLowerCase()) ))
+}
+
+function renderPostOffice(officeList){
+ let post_container = document.getElementById("post-container");
+ post_container.innerHTML = ``
+ officeList.map((postOffice)=>{
+    post_container.innerHTML += `
          <div class="post"> 
             <p>Name: <span>${postOffice.Name}</span></p>
             <p>Branch Type: <span>${postOffice.BranchType}</span></p>
@@ -79,6 +94,6 @@ const fetchPostOffice = () => {
             <p>Division: <span>${postOffice.Division}</span></p>
         </div>
         `;
-      });
-    });
-};
+ })
+
+}
