@@ -35,7 +35,7 @@ body{
     
 }
 #hero-text h1{
-    font-size: 35px;
+    font-size: 40px;
     color: rgba(87, 90, 133, 1);
 }
 #hero-text p{
@@ -63,7 +63,13 @@ span{
     border: 2px solid rgba(184, 188, 204, 1);
     color: rgba(184, 188, 204, 1);
     border-radius: 10px;
-    font-weight: 600px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+#ip-container button:hover{
+    transform: translateY(-2px);
+    box-shadow: 1px 1px 12px 0px #0000006e;
 }
 #data-container{
     width: 100%;
