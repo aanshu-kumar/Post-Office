@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Office</title>
+    <link rel="Stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="hero" >
+        <div class="hero-container" id="hero-img">
+            <div id="hero-text">
+                <h1>Post Office Application.</h1>
+                <p>This Application Allows you to extract information about the nearest Post Offices, based on your location.</p>
+            </div>
+            <img src="./image.png">
+        </div>
+        <div class="hero-container"  id="ip-container">
+            
+        </div>
+    </section>
+    <section id="data" >
+        <div id="data-container">
+            <p>IP Address: <span>127.0.01</span></p>
+            <div class="grid-row">
+                <div class="grid-col"> <p>Lat: <span></span></p></div>
+                <div class="grid-col"><p>City:  <span></span></p></div>
+                <div class="grid-col"><p>Organisation:  <span></span></p></div>
+                <div class="grid-col"><p>Long: <span></span></p></div>
+                <div class="grid-col"><p>Region: <span></span></p></div>
+                <div class="grid-col"><p>Hostname: <span></span></p></div>
+            </div>
+        </div>
+        <div id="map-container">
+            <h3>Your Current Location</h3>
+            <div id="map-item">
+                <iframe src="https://maps.google.com/maps?q=25.4303405,86.0066619&z=15&output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+            </div>
+        </div>
+        <div id="moreInfo-container">
+            <h3>More Information About You</h3>
+            <p>Time Zone:</p>
+            <p>Date And Time:</p>
+            <p>Pincode:</p>
+            <p>Message: Number of pincode(s) found: </p>
+            <h3>Post Offices Near You</h3>
+            <div id="search-box">
+                <label for="search-post"><svg width="40" height="40" fill="white" viewBox="-2.5 -2.5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" class="jam jam-search"><path d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12m6.32-1.094 3.58 3.58a1 1 0 1 1-1.415 1.413l-3.58-3.58a8 8 0 1 1 1.414-1.414z"/></svg></label>
+                <input id="search-post" type="text" placeholder="Search by name">
+            </div>
+            <div id="post-container">
+                
+                <div class="post"> 
+                    <p>Name</p>
+                    <p>Branch Type</p>
+                    <p>Delivery Status</p>
+                    <p>District</p>
+                    <p>Division</p>
+                </div>
+                <div class="post"> 
+                    <p>Name</p>
+                    <p>Branch Type</p>
+                    <p>Delivery Status</p>
+                    <p>District</p>
+                    <p>Division</p>
+                </div>
+                <div class="post"> 
+                    <p>Name</p>
+                    <p>Branch Type</p>
+                    <p>Delivery Status</p>
+                    <p>District</p>
+                    <p>Division</p>
+                </div>
+                <div class="post"> 
+                    <p>Name</p>
+                    <p>Branch Type</p>
+                    <p>Delivery Status</p>
+                    <p>District</p>
+                    <p>Division</p>
+                </div>
+                
+
+            </div>
+           
+        </div>
+    </section>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
