@@ -21,17 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 const fetchUserInfo = () => {
   document.getElementById("hero").style.display = "none";
   document.getElementById("data").style.display = "block";
-  fetch(`http://ip-api.com/json/${IP_Address}`)
+  fetch(`https://ipinfo.io/${IP_Address}/geo`)
     .then((response) => response.json())
     .then((data) => {
-      postal = data.zip;
-      console.log(data)
+      postal = data.postal;
       timeZone = data.timezone;
       document.getElementById("data-container").innerHTML = `
          <p>IP Address: <span>${IP_Address}</span></p>
             <div class="grid-row">
                 <div class="grid-col"> <p>Lat: <span>${
-                  data.lat
+                  data.loc.split(",")[0]
                 }</span></p></div>
                 <div class="grid-col"><p>City:  <span>${
                   data.city
@@ -40,7 +39,7 @@ const fetchUserInfo = () => {
                   data.org
                 }</span></p></div>
                 <div class="grid-col"><p>Long: <span>${
-                  data.lon
+                  data.loc.split(",")[1]
                 }</span></p></div>
                 <div class="grid-col"><p>Region: <span>${
                   data.region
@@ -51,7 +50,7 @@ const fetchUserInfo = () => {
             </div>
         `;
       document.getElementById("map-item").innerHTML = `
-        <iframe src="https://maps.google.com/maps?q=${data.lat},${data.lon}&z=15&output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+        <iframe src="https://maps.google.com/maps?q=${data.loc.split(",")[0]},${data.loc.split(",")[1]}&z=15&output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
         `;
       fetchPostOffice();
     });
