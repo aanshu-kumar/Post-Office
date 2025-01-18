@@ -21,16 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
 const fetchUserInfo = () => {
   document.getElementById("hero").style.display = "none";
   document.getElementById("data").style.display = "block";
-  fetch(`https://ipapi.co/${IP_Address}/json/`)
+  fetch(`http://ip-api.com/json/${IP_Address}`)
     .then((response) => response.json())
     .then((data) => {
-      postal = data.postal;
+      postal = data.zip;
+      console.log(data)
       timeZone = data.timezone;
       document.getElementById("data-container").innerHTML = `
          <p>IP Address: <span>${IP_Address}</span></p>
             <div class="grid-row">
                 <div class="grid-col"> <p>Lat: <span>${
-                  data.latitude
+                  data.lat
                 }</span></p></div>
                 <div class="grid-col"><p>City:  <span>${
                   data.city
@@ -39,7 +40,7 @@ const fetchUserInfo = () => {
                   data.org
                 }</span></p></div>
                 <div class="grid-col"><p>Long: <span>${
-                  data.longitude
+                  data.lon
                 }</span></p></div>
                 <div class="grid-col"><p>Region: <span>${
                   data.region
@@ -50,7 +51,7 @@ const fetchUserInfo = () => {
             </div>
         `;
       document.getElementById("map-item").innerHTML = `
-        <iframe src="https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=15&output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+        <iframe src="https://maps.google.com/maps?q=${data.lat},${data.lon}&z=15&output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
         `;
       fetchPostOffice();
     });
